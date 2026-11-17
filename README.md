@@ -1,7 +1,7 @@
 Project final : Memory game
 
 Team:
-Jose Luis Branco, 
+Jose Luis Branco, Yassine Ani
 
 But du Project:
 Réaliser un mini-jeu a propos d'un memory match avec un design de DS
