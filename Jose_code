@@ -1,1 +1,34 @@
+from machine import Pin
+import time
 
+btn_start_stop = Pin(2, Pin.IN, Pin.PULL_UP)
+
+
+led_white = Pin(3, Pin.OUT)
+led_white.value(0) 
+
+
+game_active = False
+
+last_btn_press_time = time.ticks_ms()
+debounce_delay = 300 
+
+print("Système prêt. Appuyez sur le bouton pour démarrer le jeu.")
+
+while True:
+    current_time = time.ticks_ms()
+    if btn_start_stop.value() == 0:
+        if time.ticks_diff(current_time, last_btn_press_time) > debounce_delay:
+            game_active = not game_active
+            
+            if game_active:
+                print(">>> Jeu DÉMARRÉ ! La DEL s'allume.")
+            else:
+                print(">>> Jeu ARRÊTÉ ! La DEL s'éteint.")
+            last_btn_press_time = current_time
+
+    if game_active:
+        pass
+
+    
+    time.sleep_ms(50)
