@@ -47,6 +47,8 @@ Les objectifs et les tâches de ce livrable seront définis au fur et à mesure 
 Les objectifs et les tâches de ce livrable seront définis en fonction de l'évolution du projet et des exigences finales.
 
 ---
+## Désigne
+![Design du projet](Premier_Designe.png)
 
 ## 4. Idées et fonctionnalités
 
