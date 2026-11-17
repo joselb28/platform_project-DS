@@ -22,7 +22,8 @@ Le jeu consistera à mémoriser et à reproduire des séquences de lumières et 
 | Arduino Nano ESP32 | Prêt |
 | Breadboard | Prêt |
 | Fils de connexion | Prêt |
-| Boutons-poussoirs (2 à 4) | À obtenir |
+| Boutons-poussoirs (3) | À obtenir |
+1 button 4 pate
 | LED blanche | Prêt |
 | Module LED RGB | À obtenir |
 | Buzzer actif | À obtenir |
@@ -48,7 +49,7 @@ Les objectifs et les tâches de ce livrable seront définis en fonction de l'év
 
 ---
 ## Désigne
-![Design du projet](Premier_Designe.png)
+![Design du projet](Deuxieme_Designe.png)
 
 ## 4. Idées et fonctionnalités
 
