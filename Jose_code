@@ -3,32 +3,46 @@ import time
 
 btn_start_stop = Pin(2, Pin.IN, Pin.PULL_UP)
 
-
 led_white = Pin(3, Pin.OUT)
-led_white.value(0) 
+led_white.value(0)
 
+# Broches de la LED RGB (à ajuster selon votre câblage)
+rgb_r = Pin(4, Pin.OUT)
+rgb_g = Pin(5, Pin.OUT)
+rgb_b = Pin(6, Pin.OUT)
+
+
+def set_rgb(r, g, b):
+    rgb_r.value(r)
+    rgb_g.value(g)
+    rgb_b.value(b)
+
+
+set_rgb(0, 0, 0)
 
 game_active = False
 
 last_btn_press_time = time.ticks_ms()
-debounce_delay = 300 
+debounce_delay = 300
 
 print("Système prêt. Appuyez sur le bouton pour démarrer le jeu.")
 
 while True:
     current_time = time.ticks_ms()
+
     if btn_start_stop.value() == 0:
         if time.ticks_diff(current_time, last_btn_press_time) > debounce_delay:
             game_active = not game_active
-            
-            if game_active:
-                print(">>> Jeu DÉMARRÉ ! La DEL s'allume.")
-            else:
-                print(">>> Jeu ARRÊTÉ ! La DEL s'éteint.")
             last_btn_press_time = current_time
+
+            if game_active:
+                set_rgb(0, 1, 0)  # Vert
+                print("Jeu DÉMARRÉ ! LED RGB en vert.")
+            else:
+                set_rgb(0, 0, 0)  # Éteint
+                print("Jeu ARRÊTÉ ! LED RGB éteinte.")
 
     if game_active:
         pass
 
-    
     time.sleep_ms(50)
