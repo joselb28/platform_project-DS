@@ -32,7 +32,7 @@ Le jeu comprend également trois niveaux de difficulté, des indications lumineu
 | Module LED RGB | 1 | À obtenir |
 | Buzzer actif | 1 | À obtenir |
 | Matrice LED 8×8 | 1 | À obtenir |
-| Potentiomètre | 1 | À obtenir |
+| Potentiomètre | 1 | Prêt |
 
 ---
 
