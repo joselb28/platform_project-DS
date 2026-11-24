@@ -140,8 +140,6 @@ Le tableau suivant présente les connexions prévues entre les différents compo
 
 ## 6. Idées et fonctionnalités
 
-
-
 Créer un jeu de mémoire physique, amusant et interactif qui combine programmation, électronique et design.
 
 Le joueur devra observer, mémoriser et reproduire des séquences de directions et de couleurs tout en progressant à travers trois niveaux de difficulté.
@@ -157,3 +155,80 @@ Cette section sera utilisée pour documenter le code, les modifications et les d
 ```text
 On n'a pas encore décidé
 ```
+
+---
+
+## 8. Répartition des tâches du projet
+
+**Remarque :** La répartition des tâches présentée ci-dessous est provisoire. Elle représente l'organisation prévue pour le moment et pourra être modifiée selon l'avancement du projet, les besoins et les difficultés rencontrées.
+
+### 8.1 Yassine Ani – Affichage et programmation principale
+
+**Responsable de la logique du jeu et de l'affichage sur la matrice LED 8×8.**
+
+#### Matrice LED 8×8
+
+- Connecter la matrice LED à l'Arduino Nano ESP32.
+- Programmer l'affichage des flèches directionnelles.
+- Créer les animations et les différents affichages.
+- Gérer le temps d'affichage des directions.
+- Programmer l'affichage des séquences.
+
+#### Logique du jeu
+
+- Générer des séquences aléatoires.
+- Enregistrer les séquences à mémoriser.
+- Vérifier les réponses du joueur.
+- Gérer les erreurs et les bonnes réponses.
+- Programmer la progression du jeu.
+- Gérer les conditions de victoire et de défaite.
+
+### 8.2 Jose Luis Branco – Contrôles et composants électroniques
+
+**Responsable des composants électroniques, des contrôles et de la sélection de la difficulté.**
+
+#### Boutons-poussoirs
+
+- Connecter les quatre boutons rouge, vert, bleu et blanc.
+- Programmer la détection des pressions.
+- Associer chaque bouton à une direction.
+- Transmettre les réponses au programme principal.
+
+#### Potentiomètre et difficulté
+
+- Connecter le potentiomètre.
+- Lire sa valeur avec l'Arduino.
+- Programmer la sélection des trois niveaux de difficulté.
+- Définir les paramètres de chaque niveau.
+
+#### LED RGB
+
+- Connecter et programmer la LED RGB.
+- Vert : niveau facile.
+- Jaune : niveau moyen.
+- Rouge : niveau difficile.
+
+#### Buzzer
+
+- Connecter le buzzer.
+- Programmer le son de confirmation.
+- Programmer le son d'erreur.
+
+#### Autres composants
+
+- Connecter et programmer la LED blanche.
+- Installer le bouton ON/OFF.
+- Vérifier le fonctionnement de ces composants.
+
+### 8.3 Travail à effectuer ensemble
+
+Les deux membres de l'équipe seront responsables des tâches suivantes :
+
+- L'intégration de toutes les fonctionnalités.
+- La connexion finale des différents composants.
+- Les tests du jeu complet.
+- La correction des erreurs électroniques et logicielles.
+- L'amélioration du design physique.
+- La préparation de la présentation finale.
+
+*** Note: Les responsabilités ne sont pas définitives et pourront être ajustées ou redistribuées entre les deux membres au cours du développement.
