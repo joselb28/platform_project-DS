@@ -1,48 +1,74 @@
-from machine import Pin
+from machine import ADC, PWM, Pin
 import time
 
 btn_start_stop = Pin(2, Pin.IN, Pin.PULL_UP)
 
-led_white = Pin(3, Pin.OUT)
-led_white.value(0)
+# Potentiomètre pour la sélection de la difficulté (0% = facile/vert, 50% = moyen/jaune, 100% = difficile/rouge)
+pot = ADC(Pin(26))
 
-# Broches de la LED RGB (à ajuster selon votre câblage)
-rgb_r = Pin(4, Pin.OUT)
-rgb_g = Pin(5, Pin.OUT)
+# Broches de la LED RGB en PWM (à ajuster selon votre câblage)
+rgb_r_pwm = PWM(Pin(4))
+rgb_r_pwm.freq(1000)
+
+rgb_g_pwm = PWM(Pin(5))
+rgb_g_pwm.freq(1000)
+
 rgb_b = Pin(6, Pin.OUT)
+rgb_b.value(0)
+
+MAX_DUTY = 65535
 
 
-def set_rgb(r, g, b):
-    rgb_r.value(r)
-    rgb_g.value(g)
-    rgb_b.value(b)
+def set_rgb_duty(r_duty, g_duty, b_val=0):
+    rgb_r_pwm.duty_u16(max(0, min(MAX_DUTY, int(r_duty))))
+    rgb_g_pwm.duty_u16(max(0, min(MAX_DUTY, int(g_duty))))
+    rgb_b.value(1 if b_val else 0)
 
 
-set_rgb(0, 0, 0)
+def get_difficulty():
+    # Retourne une valeur de difficulté normalisée entre 0.0 et 1.0
+    return pot.read_u16() / MAX_DUTY
+
+
+def update_difficulty_led(difficulty):
+    # 0.0 -> vert max (0, 65535)
+    # 0.5 -> jaune (65535, 65535)
+    # 1.0 -> rouge max (65535, 0)
+    red_level = min(1.0, difficulty * 2.0)
+    green_level = min(1.0, (1.0 - difficulty) * 2.0)
+    set_rgb_duty(red_level * MAX_DUTY, green_level * MAX_DUTY, 0)
+
+
+set_rgb_duty(0, 0, 0)
 
 game_active = False
-
+last_btn_state = 1  # Repos = 1 avec PULL_UP
 last_btn_press_time = time.ticks_ms()
-debounce_delay = 300
-
-print("Système prêt. Appuyez sur le bouton pour démarrer le jeu.")
+debounce_delay = 200
 
 while True:
     current_time = time.ticks_ms()
+    btn_state = btn_start_stop.value()
 
-    if btn_start_stop.value() == 0:
+    # Détection d'un nouvel appui (passage de 1 à 0)
+    if last_btn_state == 1 and btn_state == 0:
         if time.ticks_diff(current_time, last_btn_press_time) > debounce_delay:
             game_active = not game_active
             last_btn_press_time = current_time
 
             if game_active:
-                set_rgb(0, 1, 0)  # Vert
-                print("Jeu DÉMARRÉ ! LED RGB en vert.")
+                difficulty = get_difficulty()
+                update_difficulty_led(difficulty)
+                print("Game ON")
             else:
-                set_rgb(0, 0, 0)  # Éteint
-                print("Jeu ARRÊTÉ ! LED RGB éteinte.")
+                set_rgb_duty(0, 0, 0)
+                print("Game OFF")
+
+    last_btn_state = btn_state
 
     if game_active:
-        pass
+        difficulty = get_difficulty()
+        update_difficulty_led(difficulty)
+        # Utilisez `difficulty` (0.0 à 1.0) dans la logique de votre jeu ici
 
-    time.sleep_ms(50)
+    time.sleep_ms(10)
