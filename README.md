@@ -27,11 +27,11 @@ Le jeu comprend également trois niveaux de difficulté, des indications lumineu
 | Breadboard | 1 | Prêt |
 | Fils de connexion | Plusieurs | Prêt |
 | Boutons-poussoirs (rouge, vert, bleu, blanc) | 4 | À obtenir |
-| Bouton ON/OFF (2 broches) | 1 | À obtenir |
+| Bouton ON/OFF (2 broches) | 1 | Prêt |
 | LED blanche | 1 | Prêt |
-| Module LED RGB | 1 | À obtenir |
-| Buzzer actif | 1 | À obtenir |
-| Matrice LED 8×8 | 1 | À obtenir |
+| Module LED RGB | 1 | Prêt |
+| Buzzer actif | 1 | Prêt |
+| Matrice LED 8×8 | 1 | Prêt |
 | Potentiomètre | 1 | Prêt |
 
 ---
