@@ -108,9 +108,39 @@ Un petit bouton à deux broches sera installé sur le côté du dispositif.
 
 Il permettra d'allumer et d'éteindre le système.
 
+
+## 4. Configuration électronique
+
+### Attribution préliminaire des broches
+
+Le tableau suivant présente les connexions prévues entre les différents composants et l'Arduino Nano ESP32.
+
+| Composant | Broches Arduino Nano ESP32 |
+|:---|:---|
+| Matrice LED 8×8 | A4 (SDA), A5 (SCL), VBUS (5V), GND |
+| Bouton-poussoir rouge | D2, 3V3, GND |
+| Bouton-poussoir vert | D3, 3V3, GND |
+| Bouton-poussoir bleu | D4, 3V3, GND |
+| Bouton-poussoir blanc | D5, 3V3, GND |
+| Module LED RGB | D6, D7, D8, alimentation, GND |
+| Buzzer actif | D9, alimentation compatible, GND |
+| Potentiomètre | A0, 3V3, GND |
+| LED blanche | A1, GND (avec résistance) |
+| Bouton ON/OFF | En série avec l'alimentation générale |
+| Breadboard | 3V3, VBUS (5V selon les modules), GND |
+| Fils de connexion | Selon les connexions de chaque composant |
+
+**Remarques :**
+- Toutes les masses (GND) doivent être reliées ensemble.
+- La breadboard servira à distribuer l'alimentation et à faciliter les connexions.
+- Les broches proposées sont préliminaires et pourront être modifiées pendant le développement.
+- La compatibilité électrique des composants devra être vérifiée avant le branchement.
+
 ---
 
-## 5. Objectif final
+## 5. Idées et fonctionnalités
+
+
 
 Créer un jeu de mémoire physique, amusant et interactif qui combine programmation, électronique et design.
 
