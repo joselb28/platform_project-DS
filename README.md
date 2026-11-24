@@ -109,7 +109,7 @@ Un petit bouton à deux broches sera installé sur le côté du dispositif.
 Il permettra d'allumer et d'éteindre le système.
 
 
-## 4. Configuration électronique
+## 5. Configuration électronique
 
 ### Attribution préliminaire des broches
 
@@ -138,7 +138,7 @@ Le tableau suivant présente les connexions prévues entre les différents compo
 
 ---
 
-## 5. Idées et fonctionnalités
+## 6. Idées et fonctionnalités
 
 
 
@@ -148,7 +148,7 @@ Le joueur devra observer, mémoriser et reproduire des séquences de directions 
 
 ---
 
-## 6. Développement
+## 7. Développement
 
 Cette section sera utilisée pour documenter le code, les modifications et les différentes étapes du développement du projet.
 
